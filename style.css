@@ -11,13 +11,16 @@ body {
 
 
 .container {
-  max-width: 700px;
-  background: white;
-  margin: 50px auto;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+
 
 h1 {
   text-align: center;
@@ -50,5 +53,6 @@ button:hover {
   font-weight: bold;
   margin-top: 20px;
 }
+
 
 
