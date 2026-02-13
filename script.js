@@ -1,3 +1,4 @@
+let retryUsed = sessionStorage.getItem("retryUsed") === "1";
 //
 const WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbw3cmVFVKlU2umR0A88ER1w43XuusjWN4vmXOtWZPio7oMsAmz-LngLiGuVmfykw3M/exec";
@@ -33,12 +34,21 @@ function submitQuiz() {
       `🎉 Баяр хүргэе, <b>${name}</b>!<br>` +
       `Та <b>${score}/${totalQuestions}</b> буюу <b>${percent}%</b> авч <b>ТЭНЦЛЭЭ</b>.`;
   } else {
-    resultDiv.className = "result-fail";
+  resultDiv.className = "result-fail";
+
+  if (!retryUsed) {
     resultDiv.innerHTML =
       `❌ Уучлаарай, <b>${name}</b>.<br>` +
       `Та <b>${score}/${totalQuestions}</b> буюу <b>${percent}%</b> авч <b>ТЭНЦСЭНГҮЙ</b>.<br><br>` +
-      `<button type="button" onclick="retryQuiz()">🔄 Дахин өгөх</button>`;
+      `<button type="button" onclick="retryQuiz()">🔄 Дахин өгөх (1 удаа)</button>`;
+  } else {
+    resultDiv.innerHTML =
+      `❌ Уучлаарай, <b>${name}</b>.<br>` +
+      `Та <b>${score}/${totalQuestions}</b> буюу <b>${percent}%</b> авч <b>ТЭНЦСЭНГҮЙ</b>.<br><br>` +
+      `⛔ Дахин өгөх эрх дууссан.`;
   }
+}
+
 
   const form = new URLSearchParams();
   form.append("company", company);
@@ -67,3 +77,4 @@ function retryQuiz() {
   resultDiv.className = "";
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
