@@ -1,3 +1,23 @@
+// Шалгалтын төлөв: true = Нээлттэй, false = Хаалттай
+const isExamOpen = false; 
+
+// Шалгалт хаалттай үед ажиллах функц
+function checkExamStatus() {
+    if (!isExamOpen) {
+        // Сайтын үндсэн агуулгыг нууж, "Хаалттай" гэсэн бичиг харуулна
+        document.body.innerHTML = `
+            <div style="text-align: center; margin-top: 100px; font-family: Arial, sans-serif;">
+                <h1 style="color: #e74c3c;">Уучлаарай!</h1>
+                <p style="font-size: 18px;">Шалгалт одоогоор хаагдсан байна.</p>
+                <p>Дараа дахин хандана уу эсвэл админтай холбогдоно уу.</p>
+                <div style="font-size: 50px;">🔒</div>
+            </div>
+        `;
+    }
+}
+
+// Хуудас ачаалагдах үед шууд шалгана
+window.onload = checkExamStatus;
 let attempt = Number(sessionStorage.getItem("attempt") || "1");
 
 const WEB_APP_URL =
