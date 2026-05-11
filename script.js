@@ -1,5 +1,5 @@
 // Шалгалтын төлөв: true = Нээлттэй, false = Хаалттай
-const isExamOpen = true; 
+const isExamOpen = false; 
 
 // Шалгалт хаалттай үед ажиллах функц
 function checkExamStatus() {
